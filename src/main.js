@@ -1,8 +1,8 @@
 import Vue from 'vue'
 import App from './App.vue'
 
-import http from 'bravo-http'
-Vue.prototype.$http = http
+import bravoHttp from 'bravo-http'
+Vue.use(bravoHttp)
 
 Vue.config.productionTip = false
 
