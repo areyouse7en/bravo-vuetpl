@@ -14,7 +14,7 @@ import { user } from "@/constants/api";
 
 export default {
   metaInfo: {
-    title: "管理"
+    title: "用户"
   },
   data() {
     return {
