@@ -1,11 +1,11 @@
 {
   "name": "bravo-fe",
   "version": "1.1.0",
-  "private": true,
   "author": "seven <373084212@qq.com>",
   "description": "bravo-fe",
   "repository": "ssh://git@www.bravo-u.cn:10022/bravo-fe/vuecli-tpl.git",
   "license": "MIT",
+  "main": "src/main.js",
   "scripts": {
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
