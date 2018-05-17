@@ -1,8 +1,8 @@
 import user from "./user";
 
 const state = {
-  title: '公司简称',
-  company: '公司全名',
+  title: '标题',
+  company: '公司',
   copyright: '©2018 上海可宝信息科技有限公司 版权所有'
 };
 

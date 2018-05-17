@@ -5,7 +5,8 @@
 <script>
 export default {
   metaInfo: {
-    title: "404"
+    title: "404",
+    titleTemplate: null
   }
 };
 </script>
@@ -17,6 +18,6 @@ export default {
   right: 0;
   bottom: 0;
   left: 0;
-  background: url(../../assets/404.jpg) no-repeat center center;
+  background: url("../../assets/404.jpg") no-repeat center center;
 }
 </style>
