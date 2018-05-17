@@ -1,8 +1,8 @@
 <template lang="pug">
   .page
     BSearchBar(:model="searchForm",@on-search="getList")
-      FormItem(prop="name")
-        Input(placeholder="用户名",v-model="searchForm.name")
+      FormItem(prop="username")
+        Input(placeholder="用户名",v-model="searchForm.username")
     BTable(:data="list",:columns="columns",:onChange="getList",:pagination="pagination",:loading="loading")
       BRole
         router-link(to="test/create")
@@ -19,15 +19,15 @@ export default {
   data() {
     return {
       searchForm: {
-        name: ""
+        username: ""
       },
       list: [],
       columns: [
         {
           title: "名称",
           render: (h, { row }) => {
-            const { name, uuid } = row;
-            return <router-link to={`test/${uuid}`}>{name}</router-link>;
+            const { username, uuid } = row;
+            return <router-link to={`user/${uuid}`}>{username}</router-link>;
           }
         },
         {
@@ -35,6 +35,7 @@ export default {
           width: 200,
           render: (h, { row }) => {
             const BRole = "BRole";
+            const ButtonGroup = "ButtonGroup";
             const Button = "Button";
             return (
               <BRole>
@@ -64,13 +65,13 @@ export default {
     // 获取列表
     getList(page, size) {
       this.loading = true;
-      const { name: lname } = this.searchForm;
+      const { username: lusername } = this.searchForm;
       const payload = {
         params: {
           requirePage: true,
           currentPage: page || this.pagination.current,
           pageSize: size || this.pagination.size,
-          lname
+          lusername
         }
       };
       this.$createHttpEx(
@@ -86,10 +87,10 @@ export default {
     },
     // 点击删除按钮
     handleDelete(item) {
-      const { uuid, name } = item;
+      const { uuid, username } = item;
       this.$Modal.confirm({
         title: "提示",
-        content: `确定要删除 <b>${name}</b> 吗`,
+        content: `确定要删除 <b>${username}</b> 吗`,
         onOk: () => {
           this.fetchDelete(uuid);
         }

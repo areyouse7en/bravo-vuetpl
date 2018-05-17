@@ -43,12 +43,12 @@ export default {
         },
         {
           hasChild: true,
-          name: "test",
-          title: "测试",
+          name: "user",
+          title: "账号管理",
           children: [
             {
-              name: "test-account",
-              title: "账号管理"
+              name: "user-index",
+              title: "用户管理"
             }
           ]
         }
