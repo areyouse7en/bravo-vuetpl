@@ -2,6 +2,10 @@
   "name": "bravo-fe",
   "version": "1.0.0",
   "private": true,
+  "author": "seven <373084212@qq.com>",
+  "description": "bravo-fe",
+  "repository": "ssh://git@www.bravo-u.cn:10022/bravo-fe/vuecli-tpl.git",
+  "license": "MIT",
   "scripts": {
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
@@ -10,12 +14,12 @@
   "dependencies": {
     "bravo-http": "^0.2.3",
     "iview": "^2.13.1",
+    "moment": "^2.22.1",
     "store2": "^2.7.0",
     "vue": "^2.5.16",
     "vue-meta": "^1.5.0",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1",
-    "vuex-pathify": "^1.0.3"
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.0-beta.9",
@@ -48,10 +52,5 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ],
-  "description": "bravo-fe",
-  "main": "index.js",
-  "repository": "ssh://git@www.bravo-u.cn:10022/bravo-fe/vuecli-tpl.git",
-  "author": "seven <373084212@qq.com>",
-  "license": "MIT"
+  ]
 }
