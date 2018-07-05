@@ -6,23 +6,3 @@
 .fr {
   float: right;
 }
-
-.text-right {
-  text-align: right;
-}
-
-.text-center {
-  text-align: center;
-}
-
-.divider {
-  height: 1px;
-  background-color: $line-color;
-  margin: 5px 0;
-}
-
-.ivu-form-item-content {
-  button+button {
-    margin-left: 10px;
-  }
-}
