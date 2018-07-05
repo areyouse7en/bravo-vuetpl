@@ -2,36 +2,12 @@
 import Login from "@/pages/login";
 import Error404 from "@/pages/error/404";
 import Home from "@/pages/home";
-import User from "@/pages/user";
-import UserCreate from "@/pages/user/create";
-import UserDetail from "@/pages/user/detail";
-import UserModify from "@/pages/user/modify";
 
 const mainRoutes = [{
   // 首页
   name: "home",
   path: "/",
   component: Home
-}, {
-  // 列表
-  name: "user-index",
-  path: "/user",
-  component: User
-}, {
-  // 内部管理-用户新增
-  name: "user-create",
-  path: "/user/create",
-  component: UserCreate
-}, {
-  // 内部管理-用户详情
-  name: "user-detail",
-  path: "/user/:uuid",
-  component: UserDetail
-}, {
-  // 内部管理-用户修改
-  name: "user-modify",
-  path: "/user/modify/:uuid",
-  component: UserModify
 }]
 
 mainRoutes.forEach(item => {
