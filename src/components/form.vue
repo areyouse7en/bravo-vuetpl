@@ -3,7 +3,7 @@
     Col(span="12")
       Form(ref="form",:model="model",:rules="rules",label-position="right",:label-width="100")
         slot
-        FormItem
+        FormItem.btn-content
           Button(type="primary",@click="handleSubmit") 提交
           Button(type="text",@click="handleCancel") 取消
 </template>
@@ -40,3 +40,8 @@ export default {
 };
 </script>
 
+<style lang="scss" scoped>
+.btn-content {
+  margin-top: 24px;
+}
+</style>

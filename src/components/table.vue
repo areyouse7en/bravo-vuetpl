@@ -1,13 +1,13 @@
 <template lang="pug">
   div
     Row(type="flex",align="middle",justify="space-between")
-      Col
+      Col.action-content
         slot
       Col.pagination
         Page(:current="pagination.current",:total="pagination.total",:page-size="pagination.size",simple,@on-change="onChange")
         Button(icon="gear-a",@click="visible=true",size="small")
     .table
-      Table(:loading="loading",:columns="renderedColumns",:data="data",highlight-row)
+      Table(:loading="loading",:columns="renderedColumns",:data="data",highlight-row,ref="table",@on-selection-change="onSelectionChange")
     .pagination
       Page(:current="pagination.current",:total="pagination.total",:page-size="pagination.size",show-elevator,show-sizer,show-total,@on-change="onChange",@on-page-size-change="onPageSizeChange")
     Modal(v-model="visible",title="设置表格列头",@on-ok="onOk")
@@ -32,9 +32,7 @@ export default {
     // 获取列表
     onChange: {
       type: Function,
-      default: page => {
-        console.log(page);
-      }
+      default: () => {}
     },
     // 页码
     pagination: {
@@ -57,7 +55,8 @@ export default {
     return {
       visible: false,
       processedColumns: [],
-      checkedColumns: []
+      checkedColumns: [],
+      selection: []
     };
   },
   computed: {
@@ -92,6 +91,28 @@ export default {
         });
         item.show = show;
       });
+    },
+    // 导出
+    handleExport(filename = "报表", columns, data) {
+      if (!columns) {
+        columns = this.renderedColumns;
+      }
+      if (!data) {
+        data = this.data;
+      }
+      this.$refs.table.exportCsv({
+        filename,
+        columns,
+        data
+      });
+    },
+    // 处理选中
+    onSelectionChange(selection) {
+      this.selection = selection;
+    },
+    //全部取消选中
+    clearSelection() {
+      this.$refs.table.selectAll(false);
     }
   },
   mounted() {

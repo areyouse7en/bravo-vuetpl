@@ -40,6 +40,9 @@ export default {
 .search-bar {
   .ivu-form-item {
     width: 165px;
+    &.daterange {
+      width: 180px;
+    }
   }
   .btn-item {
     width: auto;
