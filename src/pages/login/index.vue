@@ -73,7 +73,7 @@ export default {
   top: 0;
   bottom: 0;
   width: 100%;
-  background: url("../../assets/login-bg.jpg") center no-repeat;
+  background: url("../../assets/login-bg.jpg") top center no-repeat;
   background-size: cover;
   padding-top: 250px;
   color: #000;
@@ -96,5 +96,24 @@ export default {
   text-align: center;
   font-size: 12px;
   padding: 20px;
+}
+@media screen and (max-width: 640px) {
+  .page {
+    padding-top: 200px;
+    background-position: top center;
+    background-attachment: fixed;
+    background-size: auto 740px;
+  }
+  .title {
+    font-size: 18px;
+  }
+  .form {
+    width: 90%;
+    padding-bottom: 0;
+    margin-bottom: 100px;
+  }
+  .footer {
+    position: relative;
+  }
 }
 </style>
