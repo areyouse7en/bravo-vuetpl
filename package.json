@@ -12,24 +12,22 @@
   },
   "dependencies": {
     "bravo-http": "^0.2.4",
-    "iview": "2.13",
-    "moment": "^2.22.1",
+    "iview": "^3.0.0",
+    "moment": "^2.22.2",
     "store2": "^2.7.0",
     "vue": "^2.5.16",
-    "vue-meta": "^1.5.0",
+    "vue-meta": "^1.5.2",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.0.0-rc.3",
-    "@vue/cli-plugin-eslint": "^3.0.0-rc.3",
-    "@vue/cli-service": "^3.0.0-rc.3",
-    "babel-core": "^6.26.3",
-    "babel-eslint": "^8.2.5",
-    "node-sass": "^4.8.3",
+    "@vue/cli-plugin-babel": "^3.0.0-rc.9",
+    "@vue/cli-plugin-eslint": "^3.0.0-rc.9",
+    "@vue/cli-service": "^3.0.0-rc.9",
+    "node-sass": "^4.9.2",
     "pug": "^2.0.3",
     "pug-plain-loader": "^1.0.0",
-    "sass-loader": "^6.0.6",
+    "sass-loader": "^7.0.3",
     "vue-template-compiler": "^2.5.16"
   },
   "babel": {
@@ -44,17 +42,13 @@
       "eslint:recommended"
     ],
     "parserOptions": {
-      "parser": "babel-eslint",
-      "ecmaVersion": 2017,
-      "sourceType": "module"
+      "parser": "babel-eslint"
     },
     "env": {
       "node": true
     },
     "rules": {
-      "no-console": "off",
-      "arrow-parens": 0,
-      "generator-star-spacing": 0
+      "no-console": "off"
     }
   },
   "postcss": {
