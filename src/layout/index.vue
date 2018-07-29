@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    template(v-if="layout=='default'")
+    template(v-if="isDefault")
       DefaultLayout
     template(v-else)
       router-view
@@ -13,6 +13,9 @@ export default {
   computed: {
     layout() {
       return this.$route.meta.layout;
+    },
+    isDefault() {
+      return this.layout === "default";
     }
   },
   components: {

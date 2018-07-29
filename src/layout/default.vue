@@ -1,47 +1,41 @@
 <template lang="pug">
   .layout
     Layout
-      Header.layout-header
-        .logo.fl {{company}}·企业ERP管理系统
-        .action.fr
-          Dropdown(trigger="click",@on-click="handleDropDownClick")
-            Button(type="text",size="large").greeting
-              span 你好: {{info.username}} 
-              Icon(type="arrow-down-b")
-            DropdownMenu(slot="list")
-              DropdownItem(name="logout") 登出
-      Layout
-        Sider(hide-trigger).layout-sider
-        Layout.layout-main
+      Header.header
+        Menu(mode="horizontal",:theme="theme",active-name="1").menu
+          .logo {{title}}
+          .nav
+            MenuItem(name="1") 菜单1
+            MenuItem(name="2") 菜单2
+            MenuItem(name="3") 菜单3
+            MenuItem(name="4") 菜单4
+          .action
+            Dropdown(trigger="click",@on-click="handleDropDownClick")
+              Avatar(icon="ios-person")
+              DropdownMenu(slot="list")
+                DropdownItem(name="logout") 登出
+      Content.content
+        router-view
+      Footer.footer {{copyright}}
 </template>
 
 <script>
 import { mapState } from "vuex";
-import { user } from "@/constants/api";
 import { clearToken } from "@/utils/jwt";
 
 export default {
   data() {
-    return {};
+    return {
+      theme: "light"
+    };
   },
   computed: {
-    ...mapState("user", ["info"])
+    ...mapState(["title", "copyright"])
   },
   methods: {
-    // 获取登录用户信息
-    featchUserInfo() {
-      const id = this.$storage("USER");
-      const payload = {
-        id
-      };
-      this.$createHttpEx(user.getByUuid, payload, data => {
-        // 存入全局
-        this.$store.commit("user/setUser", data);
-      });
-    },
     // 顶部下拉点击
     handleDropDownClick(name) {
-      if (name == "logout") {
+      if (name === "logout") {
         this.logout();
       } else {
         this.$router.push(name);
@@ -54,27 +48,37 @@ export default {
         name: "login"
       });
     }
-  },
-  mounted() {
-    // 获取用户信息
-    this.featchUserInfo();
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .layout {
-  position: relative;
-  overflow: hidden;
-}
-.layout-header {
-  color: #fff;
-  .logo {
-    font-size: 18px;
-    font-weight: bold;
+  .header {
+    padding: 0;
+    background-color: #fff;
+    .menu {
+      padding: 0 50px;
+    }
+    .logo {
+      width: 100px;
+      font-size: 20px;
+      font-weight: bold;
+      float: left;
+    }
+    .action {
+      float: right;
+    }
   }
-  .greeting {
-    color: #fff;
+  .content {
+    margin: 20px 50px;
+    padding: 20px;
+    background: #fff;
+    min-height: 500px;
+  }
+  .footer {
+    font-size: 12px;
+    text-align: center;
   }
 }
 </style>

@@ -14,8 +14,8 @@ const config = {
 const router = new VueRouter(config);
 
 // 路由守卫
-import guard from "./guard";
+/* import guard from "./guard";
 router.beforeEach(guard.before);
-router.afterEach(guard.after);
+router.afterEach(guard.after); */
 
 export default router;
