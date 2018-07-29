@@ -1,22 +1,22 @@
 <template lang="pug">
   .page
-    .title {{company}}·企业ERP管理系统
-    .form
-      Form(ref="form",:model="form",:rules="rules",:label-width="80")
-        FormItem(label="用户名",prop="username",@on-keydown.enter="handleSubmit")
-          Input(v-model="form.username")
-        FormItem(label="密码",prop="password")
-          Input(v-model="form.password",type="password",@on-keydown.enter="handleSubmit")
-        Row(type="flex",justify="center")
-          Button(type="primary",@click="handleSubmit") 登录
-    .footer {{copyright}}
+    .main
+      Card.form
+        p(slot="title") 登录
+        Form(ref="form",:model="form",:rules="rules")
+          FormItem(label="用户名",prop="username")
+            Input(v-model="form.username")
+          FormItem(label="密码",prop="password")
+            Input(v-model="form.password",type="password",@on-enter="handleSubmit")
+          FormItem
+            Button(type="primary",@click="handleSubmit",long) 登录
+    .bg
 </template>
 
 <script>
-import { mapState } from "vuex";
 import { required } from "@/constants/rules";
-import { user } from "@/constants/api";
-import { setToken } from "@/utils/jwt";
+// import { user } from "@/constants/api";
+// import { setToken } from "@/utils/jwt";
 
 export default {
   metaInfo: {
@@ -34,9 +34,6 @@ export default {
       }
     };
   },
-  computed: {
-    ...mapState(["company", "copyright"])
-  },
   methods: {
     // 提交
     handleSubmit() {
@@ -46,22 +43,23 @@ export default {
         }
       });
     },
-    // 登录
+    // 请求登录
     fetchValidate() {
-      const { username, password } = this.form;
+      const { username: token, password } = this.form;
       const payload = {
         params: {
           password,
-          token: username
+          token
         }
       };
-      this.$createMsgHttpEx(user.validate, payload, "登陆成功", data => {
+      /* this.$createMsgHttpEx(user.validate, payload, "登录成功", data => {
         const { access_token, refresh_token } = data;
         // 保存token
         setToken(access_token, refresh_token);
-        // 跳转至首页（ 后期修改为她跳转至原访问地址）
+        // 跳转至首页
         this.$router.push({ name: "home" });
-      });
+      }); */
+      this.$router.push({ name: "home" });
     }
   }
 };
@@ -69,50 +67,25 @@ export default {
 
 <style lang="scss" scoped>
 .page {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  width: 100%;
-  background-size: cover;
-  padding-top: 250px;
-  color: #000;
-}
-.title {
-  text-align: center;
-  font-size: 38px;
-}
-.form {
-  width: 400px;
-  margin: 0 auto;
-  padding-top: 50px;
-  padding-bottom: 100px;
-  position: relative;
-}
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  text-align: center;
-  font-size: 12px;
-  padding: 20px;
-}
-@media screen and (max-width: 640px) {
-  .page {
-    padding-top: 200px;
-    background-position: top center;
+  margin: 60px 0;
+  .main {
+    width: 400px;
+    margin: 0 auto;
+    padding: 60px 0;
+    .form {
+      padding: 0 15px;
+    }
+  }
+  .bg {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url("../../assets/login.svg") no-repeat;
     background-attachment: fixed;
-    background-size: auto 740px;
-  }
-  .title {
-    font-size: 18px;
-  }
-  .form {
-    width: 90%;
-    padding-bottom: 0;
-    margin-bottom: 100px;
-  }
-  .footer {
-    position: relative;
+    background-size: 100%;
+    z-index: -1;
   }
 }
 </style>
