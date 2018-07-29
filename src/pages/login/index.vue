@@ -45,14 +45,14 @@ export default {
     },
     // 请求登录
     fetchValidate() {
-      const { username: token, password } = this.form;
+      /* const { username: token, password } = this.form;
       const payload = {
         params: {
           password,
           token
         }
       };
-      /* this.$createMsgHttpEx(user.validate, payload, "登录成功", data => {
+      this.$createMsgHttpEx(user.validate, payload, "登录成功", data => {
         const { access_token, refresh_token } = data;
         // 保存token
         setToken(access_token, refresh_token);

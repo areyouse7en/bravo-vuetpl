@@ -1,5 +1,5 @@
 // eg.
-export const test = {
+export const jwt = {
   validate: {
     method: "post",
     url: "/api/test"
