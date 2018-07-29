@@ -6,7 +6,6 @@ import "./components/";
 import "./directives/";
 
 import App from "./App.vue";
-import "./assets/app.scss";
 
 new Vue({
   el: "#app",

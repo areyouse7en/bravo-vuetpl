@@ -21,4 +21,11 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+body {
+  background: #f8f8f9;
+}
+</style>
+
  

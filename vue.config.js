@@ -1,4 +1,5 @@
 module.exports = {
+  // lintOnSave: false,
   devServer: {
     // open: process.platform === 'darwin',
     host: '0.0.0.0',
@@ -7,9 +8,9 @@ module.exports = {
     // hotOnly: false,
     proxy: {
       '/api': {
-        target: "http://ruizhu.nicknideveloper.net",
+        target: "http://xx.nicknideveloper.net",
         pathRewrite: {
-          "^/api": "/ruizhu-erp-api"
+          "^/api": "/xx-api"
         },
         ws: true,
         changeOrigin: true

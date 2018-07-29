@@ -63,13 +63,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import "../assets/_color";
 .layout {
   position: relative;
   overflow: hidden;
 }
 .layout-header {
-  background-color: $primary-color;
   color: #fff;
   .logo {
     font-size: 18px;

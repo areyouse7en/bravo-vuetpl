@@ -73,7 +73,6 @@ export default {
   top: 0;
   bottom: 0;
   width: 100%;
-  background: url("../../assets/login-bg.jpg") top center no-repeat;
   background-size: cover;
   padding-top: 250px;
   color: #000;
